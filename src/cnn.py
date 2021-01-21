@@ -60,7 +60,7 @@ class CNN(nn.Module):
             nn.Dropout(0.5),
 
             # Output layer
-            nn.Linear(128, 2)
+            nn.Linear(128, 8)
         )
 
     def forward(self, x):

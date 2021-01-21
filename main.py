@@ -29,6 +29,7 @@ canvas_result = st_canvas(
     update_streamlit=True,
     drawing_mode="freedraw",
     key="canvas",
+    width=400
 )
 image = Image(canvas_result.image_data)
 
@@ -45,8 +46,14 @@ if (image.image is not None) and (not image.is_empty()):
     with col3:
 
         images = [
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/banana.png",
             "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/axe.png",
-            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/banana.png"
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/spider.png",
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/hand.png",
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/house.png",
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/eyeglasses.png",
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/cup.png",
+            "https://f003.backblazeb2.com/file/joffreybvn/deepdrawing/diamond.png",
         ]
 
         st.subheader("Recognized image")
@@ -59,7 +66,7 @@ if (image.image is not None) and (not image.is_empty()):
         st.markdown("Was your drawing hard to recognize ?")
         st.bar_chart(pd.DataFrame(
             model.probabilities,
-            columns=["banana", "axe"]
+            columns=[f"{i}" for i in range(8)]
         ).T)
 
 
